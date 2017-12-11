@@ -1,0 +1,160 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.github.ifris</groupId>
+	<artifactId>excel-mapper</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>excel-mapper</name>
+	<description>
+		This Project is forked from https://github.com/mohsen-mahmoudi/excel-object-mapper.
+		The main concept is excel rows into a domain model for every configured column
+	</description>
+
+	<url>https://github.com/ghacupha/ifris-excel-mapper</url>
+
+	<organization>
+		<name>Freelance</name>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:https://github.com/ghacupha/ifris-excel-mapper</connection>
+		<developerConnection>scm:git:https://github.com/ghacupha/ifris-excel-mapper</developerConnection>
+		<url>https://github.com/ghacupha/ifris-excel-mapper</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>redcrow</id>
+			<name>jittagorn pitakmetagoon</name>
+			<email>jittagornp@gmail.com</email>
+			<timezone>+7</timezone>
+			<url>http://na5cent.blogspot.com/</url>
+		</developer>
+		<developer>
+			<id>mahmoudi</id>
+			<name>mohsen mahmoudi</name>
+			<email>mohsen.mahmoudi.91@gmail.com</email>
+			<timezone>+3:30</timezone>
+			<url>https://github.com/mohsen-mahmoudi</url>
+		</developer>
+		<developer>
+			<id>edwin</id>
+			<name>edwin njeru</name>
+			<email>mailnjeru@gmail.com</email>
+			<timezone>+3:00</timezone>
+			<url>https://github.com/ghacupha/ifris-excel-mapper</url>
+		</developer>
+	</developers>
+
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/ghacupha/ifris-excel-mapper/issues</url>
+	</issueManagement>
+
+	<properties>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>4.12</junit.version>
+        <apache.poi.version>3.17</apache.poi.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <logback.version>1.0.13</logback.version>
+	</properties>
+
+	<dependencies>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${apache.poi.version}</version>
+        </dependency>
+
+        <!-- apache poi excel ********************************************** -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.13</version>
+			<type>jar</type>
+		</dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
+					<source>${java.source.version}</source>
+					<target>${java.target.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
