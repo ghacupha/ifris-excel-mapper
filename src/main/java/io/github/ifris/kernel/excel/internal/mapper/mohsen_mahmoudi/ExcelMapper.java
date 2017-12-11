@@ -19,6 +19,8 @@ import java.util.Map.Entry;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
+import static org.apache.poi.ss.usermodel.CellType.BOOLEAN;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -121,7 +123,7 @@ public class ExcelMapper {
 	public ExcelMapper cellExceptionsColor(IndexedColors indexColor) throws Throwable {
 		cellExceptionBackground = this.workbook.createCellStyle();
 		cellExceptionBackground.setFillForegroundColor(indexColor.index);
-		cellExceptionBackground.setFillPattern(CellStyle.SOLID_FOREGROUND);
+		//cellExceptionBackground.setFillPattern(CellStyle.SOLID_FOREGROUND);
 		return this;
 	}
 
@@ -249,14 +251,14 @@ public class ExcelMapper {
 		}
 
 		String value = "";
-		switch (cell.getCellType()) {
-		case Cell.CELL_TYPE_BOOLEAN:
+		switch (cell.getCellTypeEnum()) {
+			case BOOLEAN:
 			value += String.valueOf(cell.getBooleanCellValue());
 			break;
-		case Cell.CELL_TYPE_NUMERIC:
+            case NUMERIC:
 			value += new BigDecimal(cell.getNumericCellValue()).toString();
 			break;
-		case Cell.CELL_TYPE_STRING:
+            case STRING:
 			value += cell.getStringCellValue();
 			break;
 		}
