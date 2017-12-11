@@ -1,6 +1,8 @@
 
 [![Build Status](https://travis-ci.org/ghacupha/ifris-excel-mapper.svg?branch=master)](https://travis-ci.org/ghacupha/ifris-excel-mapper)
 
+[![](https://jitpack.io/v/ghacupha/ifris-excel-mapper.svg)](https://jitpack.io/#ghacupha/ifris-excel-mapper)
+
 This implementation is used in ifris project to serialize excel data into java objects which can be manipulated
 in a java project and persisted into a database for further manipulation and analysis.
 Excel mapper is based on the original works of mohsen mahmoudi which can be found on this link https://github.com/mohsen-mahmoudi
