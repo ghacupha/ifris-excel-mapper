@@ -104,7 +104,7 @@ fieldToColumnIndex.put("iq", 11);
         List<UnAnnotizedModel> items2 = null;
 
         try {
-            items2 = ExcelMapper.mapFromExcel(new File("D:\\workspaces\\poijiWorkspace\\excel-object-mapper\\src\\main\\resources\\excel2.xlsx"))
+            items2 = ExcelMapper.mapFromExcel(new File(getClass().getResource("/excel2.xlsx").getPath())
                     .toObjectOf(UnAnnotizedModel.class)
                     .fromSheet(0)
                     .mapFieldFrom(fieldToColumnIndex)
@@ -113,10 +113,10 @@ fieldToColumnIndex.put("iq", 11);
             throwable.printStackTrace();
         }
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date testDate = formatter.parse("21/07/1989");
-
-        // using string date. java.util.Date not suported
+	// using string date. java.util.Date not suported
+        //SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        //Date testDate = formatter.parse("21/07/1989");
+        
         Assert.assertEquals("jittagorn",items2.get(0).getFistName());
         Assert.assertEquals("pitakmetagoon",items2.get(0).getLastName());
         Assert.assertEquals(new Integer(25),items2.get(0).getAge());
